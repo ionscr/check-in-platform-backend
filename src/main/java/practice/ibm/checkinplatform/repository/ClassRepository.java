@@ -6,10 +6,11 @@ import org.springframework.stereotype.Repository;
 import practice.ibm.checkinplatform.model.Class;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
 
 @Repository
 public interface ClassRepository extends JpaRepository<Class, Long> {
-    Optional<Class> findClassesByDate(LocalDate date);
+    List<Class> findClassesByDate(LocalDate date);
     void deleteClassById(Long id);
 }
