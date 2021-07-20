@@ -6,5 +6,5 @@ import practice.ibm.checkinplatform.model.Classroom;
 
 @Repository
 public interface ClassroomRepository extends JpaRepository<Classroom, Long> {
-
+    void deleteClassroomById(Long id);
 }

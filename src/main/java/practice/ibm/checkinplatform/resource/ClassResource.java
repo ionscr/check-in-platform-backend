@@ -36,12 +36,12 @@ public class ClassResource {
     }
 
     @PutMapping("/update")
-    public ResponseEntity<Class> updateUser(@RequestBody Class class1) {
+    public ResponseEntity<Class> updateClass(@RequestBody Class class1) {
         Class updateClass = classService.updateClass(class1);
         return new ResponseEntity<>(updateClass, HttpStatus.OK);
     }
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<?> deleteEmployee(@PathVariable("id") Long id) {
+    public ResponseEntity<?> deleteClass(@PathVariable("id") Long id) {
         classService.deleteClassById(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }

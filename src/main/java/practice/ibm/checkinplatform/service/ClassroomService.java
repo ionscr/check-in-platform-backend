@@ -29,4 +29,6 @@ public class ClassroomService {
     public Classroom updateClassroom(Classroom classroom) {
         return classroomRepository.save(classroom);
     }
+
+    public void deleteClassroomById(Long id) { classroomRepository.deleteClassroomById(id);}
 }
