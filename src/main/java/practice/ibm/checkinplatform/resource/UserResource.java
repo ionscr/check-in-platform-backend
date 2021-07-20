@@ -27,7 +27,16 @@ public class UserResource {
         User user = userService.findUserById(id);
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
-
+    @GetMapping("/find/byRole/{role}")
+    public ResponseEntity<List<User>> getUsersByRole (@PathVariable("role") int role){
+        List<User> users = userService.findUsersByRole(role);
+        return new ResponseEntity<>(users, HttpStatus.OK);
+    }
+    @GetMapping("/find/byUName/{username}")
+    public ResponseEntity<User> getUserByUsername (@PathVariable("username") String username){
+        User user = userService.findUserByUsername(username);
+        return new ResponseEntity<>(user, HttpStatus.OK);
+    }
     @PostMapping("/add")
     public ResponseEntity<User> addUser(@RequestBody User user) {
         User newUser = userService.addUser(user);
@@ -39,14 +48,5 @@ public class UserResource {
         User updateUser = userService.updateUser(user);
         return new ResponseEntity<>(updateUser, HttpStatus.OK);
     }
-    @GetMapping("/find/byRole/{role}")
-    public ResponseEntity<List<User>> getUsersByRole (@PathVariable("role") int role){
-        List<User> users = userService.findUsersByRole(role);
-        return new ResponseEntity<>(users, HttpStatus.OK);
-    }
-    @GetMapping("/find/byUName/{username}")
-    public ResponseEntity<User> getUserByUsername (@PathVariable("username") String username){
-        User user = userService.findUserByUsername(username);
-        return new ResponseEntity<>(user, HttpStatus.OK);
-    }
+
 }
