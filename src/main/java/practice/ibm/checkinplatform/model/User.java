@@ -1,28 +1,30 @@
 package practice.ibm.checkinplatform.model;
 
 import javax.persistence.*;
-import java.io.Serializable;
-
 @Entity
-public class User implements Serializable {
+public class User{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false, updatable = false)
     private Long id;
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private String username;
+    @Column(nullable = false)
     private String password;
+    @Column(nullable = false)
     private String first_name;
+    @Column(nullable = false)
     private String last_name;
+    @Column(nullable = false)
     private int role;
-    @Basic(optional = true)
+    @Column(nullable = true)
     private int year;
-    @Basic(optional = true)
+    @Column(nullable = true)
     private String department;
-    @Basic(optional = true)
+    @Column(nullable = true)
     private String section;
-    @Basic(optional = true)
-    private String group;
+    @Column(nullable = true)
+    private String f_group;
 
     public User() {
     }
@@ -35,7 +37,7 @@ public class User implements Serializable {
         this.role = role;
     }
 
-    public User(String username, String password, String first_name, String last_name, int role, int year, String department, String section, String group) {
+    public User(String username, String password, String first_name, String last_name, int role, int year, String department, String section, String f_group) {
         this.username = username;
         this.password = password;
         this.first_name = first_name;
@@ -44,7 +46,7 @@ public class User implements Serializable {
         this.year = year;
         this.department = department;
         this.section = section;
-        this.group = group;
+        this.f_group = f_group;
     }
 
     public Long getId() {
@@ -120,11 +122,11 @@ public class User implements Serializable {
     }
 
     public String getGroup() {
-        return group;
+        return f_group;
     }
 
-    public void setGroup(String group) {
-        this.group = group;
+    public void setGroup(String f_group) {
+        this.f_group = f_group;
     }
 
     @Override
@@ -139,7 +141,7 @@ public class User implements Serializable {
                 ", year=" + year +
                 ", department='" + department + '\'' +
                 ", section='" + section + '\'' +
-                ", group='" + group + '\'' +
+                ", f_group='" + f_group + '\'' +
                 '}';
     }
 }

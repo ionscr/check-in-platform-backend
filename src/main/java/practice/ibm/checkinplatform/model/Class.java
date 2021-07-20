@@ -18,14 +18,19 @@ public class Class {
     private String name;
     @ManyToOne
     private User teacher;
+    @Column(nullable = false)
     private int year;
+    @Column(nullable = false)
     private String section;
     @OneToMany(fetch = LAZY)
     private List<User> students;
     @ManyToOne
     private Classroom classroom;
+    @Column(nullable = false)
     private LocalDate date;
+    @Column(nullable = false)
     private LocalTime time;
+
     public Class() {
     }
 
