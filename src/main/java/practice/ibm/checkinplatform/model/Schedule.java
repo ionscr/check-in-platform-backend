@@ -10,8 +10,6 @@ public class Schedule {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false, updatable = false)
     private Long id;
-    @Column(name = "date", nullable = false)
-    private Date date;
     @Column(name = "localDateTime", nullable = false)
     private LocalDateTime localDateTime;
     @ManyToOne
@@ -24,8 +22,7 @@ public class Schedule {
     public Schedule() {
     }
 
-    public Schedule(Date date, LocalDateTime localDateTime, Classroom classroom, Class classn) {
-        this.date = date;
+    public Schedule( LocalDateTime localDateTime, Classroom classroom, Class classn) {
         this.localDateTime = localDateTime;
         this.classroom = classroom;
         this.classn = classn;
@@ -39,13 +36,6 @@ public class Schedule {
         this.id = id;
     }
 
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
 
     public LocalDateTime getLocalDateTime() {
         return localDateTime;
@@ -75,7 +65,6 @@ public class Schedule {
     public String toString() {
         return "Schedule{" +
                 "id=" + id +
-                ", date=" + date +
                 ", localDateTime=" + localDateTime +
                 ", classroom=" + classroom +
                 ", classn=" + classn +

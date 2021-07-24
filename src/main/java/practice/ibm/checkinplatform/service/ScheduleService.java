@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import practice.ibm.checkinplatform.model.Schedule;
 import practice.ibm.checkinplatform.repository.ScheduleRepository;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -28,7 +29,7 @@ public class ScheduleService {
         return scheduleRepository.save(schedule);
     }
 
-    public List<Schedule> findSchedulesByDate(Date date) {
+    public List<Schedule> findSchedulesByDate(LocalDateTime date) {
         return scheduleRepository.findSchedulesByDate(date);
     }
     public void deleteScheduleById(Long id){

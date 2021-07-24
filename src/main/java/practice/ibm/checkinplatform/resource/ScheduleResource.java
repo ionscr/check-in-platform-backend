@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import practice.ibm.checkinplatform.model.Schedule;
 import practice.ibm.checkinplatform.service.ScheduleService;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -24,7 +25,7 @@ public class ScheduleResource {
         return new ResponseEntity<>(schedules, HttpStatus.OK);
     }
     @GetMapping("/date/{date}")
-    public ResponseEntity<List<Schedule>> getSchedulesByDate(@RequestBody Date date) {
+    public ResponseEntity<List<Schedule>> getSchedulesByDate(@RequestBody LocalDateTime date) {
         List<Schedule> schedules = scheduleService.findSchedulesByDate(date);
         return new ResponseEntity<>(schedules, HttpStatus.OK);
     }
