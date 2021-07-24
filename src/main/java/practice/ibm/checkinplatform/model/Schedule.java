@@ -12,7 +12,7 @@ public class Schedule {
     private Long id;
     @Column(name = "date", nullable = false)
     private Date date;
-    @Column(name = "time", nullable = false)
+    @Column(name = "localDateTime", nullable = false)
     private LocalDateTime localDateTime;
     @ManyToOne
     @JoinColumn(name = "classroom_id", referencedColumnName = "id")
