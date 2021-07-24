@@ -10,7 +10,7 @@ import java.util.Date;
 import java.util.List;
 
 @RestController
-@RequestMapping("/feature")
+@RequestMapping("/schedule")
 public class ScheduleResource {
     private final ScheduleService scheduleService;
 
@@ -41,7 +41,7 @@ public class ScheduleResource {
         return new ResponseEntity<>(updateSchedule, HttpStatus.OK);
     }
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<?> deleteFeature(@PathVariable("id") Long id) {
+    public ResponseEntity<?> deleteSchedule(@PathVariable("id") Long id) {
         scheduleService.deleteScheduleById(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
