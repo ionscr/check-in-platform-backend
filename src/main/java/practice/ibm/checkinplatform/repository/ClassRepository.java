@@ -11,6 +11,5 @@ import java.util.Optional;
 
 @Repository
 public interface ClassRepository extends JpaRepository<Class, Long> {
-    List<Class> findClassesByDate(LocalDate date);
     void deleteClassById(Long id);
 }

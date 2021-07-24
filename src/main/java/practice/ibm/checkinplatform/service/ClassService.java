@@ -31,10 +31,6 @@ public class ClassService {
         return classRepository.save(class1);
     }
 
-    public List<Class> findClassesByDate(LocalDate date) {
-        return classRepository.findClassesByDate(date);
-    }
-
     public void deleteClassById(Long id){
         classRepository.deleteClassById(id);
     }

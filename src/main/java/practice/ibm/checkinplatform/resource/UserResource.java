@@ -32,11 +32,6 @@ public class UserResource {
         List<User> users = userService.findUsersByRole(role);
         return new ResponseEntity<>(users, HttpStatus.OK);
     }
-    @GetMapping("/find/byUName/{username}")
-    public ResponseEntity<User> getUserByUsername (@PathVariable("username") String username){
-        User user = userService.findUserByUsername(username);
-        return new ResponseEntity<>(user, HttpStatus.OK);
-    }
     @PostMapping("/add")
     public ResponseEntity<User> addUser(@RequestBody User user) {
         User newUser = userService.addUser(user);
