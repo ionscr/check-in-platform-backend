@@ -33,4 +33,7 @@ public class FeatureService {
     public List<Feature> findFeaturesByClassroom(Classroom classroom) {
         return featureRepository.findFeaturesByClassroom(classroom);
     }
+    public void deleteFeatureById(Long id){
+        featureRepository.deleteFeatureById(id);
+    }
 }
