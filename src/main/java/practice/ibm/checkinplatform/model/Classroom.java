@@ -13,17 +13,14 @@ public class Classroom {
     private String location;
     @Column(nullable = false)
     private int capacity;
-    @Column(nullable = false)
-    private String features;
 
     public Classroom() {
     }
 
-    public Classroom(String name, String location, int capacity, String features) {
+    public Classroom(String name, String location, int capacity) {
         this.name = name;
         this.location = location;
         this.capacity = capacity;
-        this.features = features;
     }
 
     public Long getId() {
@@ -58,13 +55,6 @@ public class Classroom {
         this.capacity = capacity;
     }
 
-    public String getFeatures() {
-        return features;
-    }
-
-    public void setFeatures(String features) {
-        this.features = features;
-    }
 
     @Override
     public String toString() {
@@ -73,7 +63,6 @@ public class Classroom {
                 ", name='" + name + '\'' +
                 ", location='" + location + '\'' +
                 ", capacity=" + capacity +
-                ", features='" + features + '\'' +
                 '}';
     }
 }

@@ -12,37 +12,26 @@ import static javax.persistence.FetchType.LAZY;
 public class Class {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false, updatable = false)
+    @Column(name = "id", nullable = false, updatable = false)
     private Long id;
-    @Column(nullable = false)
+    @Column(name = "name", nullable = false)
     private String name;
     @ManyToOne
+    @JoinColumn(name = "teacher_id", referencedColumnName = "id")
     private User teacher;
-    @Column(nullable = false)
+    @Column(name = "year" ,nullable = false)
     private int year;
-    @Column(nullable = false)
+    @Column(name = "section", nullable = false)
     private String section;
-    @OneToMany(fetch = LAZY)
-    private List<User> students;
-    @ManyToOne
-    private Classroom classroom;
-    @Column(nullable = false)
-    private LocalDate date;
-    @Column(nullable = false)
-    private LocalTime time;
 
     public Class() {
     }
 
-    public Class(String name, User teacher, int year, String section, List<User> students, Classroom classroom, LocalDate date, LocalTime time) {
+    public Class(String name, User teacher, int year, String section) {
         this.name = name;
         this.teacher = teacher;
         this.year = year;
         this.section = section;
-        this.students = students;
-        this.classroom = classroom;
-        this.date = date;
-        this.time = time;
     }
 
     public Long getId() {
@@ -85,37 +74,6 @@ public class Class {
         this.section = section;
     }
 
-    public List<User> getStudents() {
-        return students;
-    }
-
-    public void setStudents(List<User> students) {
-        this.students = students;
-    }
-
-    public LocalDate getDate() {
-        return date;
-    }
-
-    public void setDate(LocalDate date) {
-        this.date = date;
-    }
-
-    public LocalTime getTime() {
-        return time;
-    }
-
-    public void setTime(LocalTime time) {
-        this.time = time;
-    }
-
-    public Classroom getClassroom() {
-        return classroom;
-    }
-
-    public void setClassroom(Classroom classroom) {
-        this.classroom = classroom;
-    }
 
     @Override
     public String toString() {
@@ -125,8 +83,6 @@ public class Class {
                 ", teacher=" + teacher +
                 ", year=" + year +
                 ", section='" + section + '\'' +
-                ", students=" + students +
-                ", classroom=" + classroom +
                 '}';
     }
 }

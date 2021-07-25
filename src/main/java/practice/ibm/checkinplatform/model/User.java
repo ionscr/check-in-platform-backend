@@ -8,10 +8,6 @@ public class User{
     @Column(nullable = false, updatable = false)
     private Long id;
     @Column(nullable = false)
-    private String username;
-    @Column(nullable = false)
-    private String password;
-    @Column(nullable = false)
     private String first_name;
     @Column(nullable = false)
     private String last_name;
@@ -29,17 +25,17 @@ public class User{
     public User() {
     }
 
-    public User(String username, String password, String first_name, String last_name, int role) {
-        this.username = username;
-        this.password = password;
+    public User(String first_name, String last_name, int role) {
         this.first_name = first_name;
         this.last_name = last_name;
         this.role = role;
+        this.year = 0;
+        this.department = "";
+        this.section = "";
+        this.f_group = "";
     }
 
-    public User(String username, String password, String first_name, String last_name, int role, int year, String department, String section, String f_group) {
-        this.username = username;
-        this.password = password;
+    public User(String first_name, String last_name, int role, int year, String department, String section, String f_group) {
         this.first_name = first_name;
         this.last_name = last_name;
         this.role = role;
@@ -55,22 +51,6 @@ public class User{
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public String getFirst_name() {
@@ -133,8 +113,6 @@ public class User{
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
                 ", first_name='" + first_name + '\'' +
                 ", last_name='" + last_name + '\'' +
                 ", role=" + role +

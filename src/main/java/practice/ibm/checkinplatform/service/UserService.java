@@ -35,8 +35,4 @@ public class UserService {
     public List<User> findUsersByRole(int role) {
         return userRepository.findUsersByRole(role);
     }
-    public User findUserByUsername(String username){
-        return userRepository.findUserByUsername(username)
-                .orElseThrow(() -> new RuntimeException("User with username " + username + " was not found"));
-    }
 }

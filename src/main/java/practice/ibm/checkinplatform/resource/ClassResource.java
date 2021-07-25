@@ -23,11 +23,6 @@ public class ClassResource {
         List<Class> classes =classService.findAllClasses();
         return new ResponseEntity<>(classes, HttpStatus.OK);
     }
-    @GetMapping("/find/{date}")
-    public ResponseEntity<List<Class>> getClassById (@PathVariable("date") LocalDate date) {
-        List<Class> classes = classService.findClassesByDate(date);
-        return new ResponseEntity<>(classes, HttpStatus.OK);
-    }
 
     @PostMapping("/add")
     public ResponseEntity<Class> addClass(@RequestBody Class class1) {
