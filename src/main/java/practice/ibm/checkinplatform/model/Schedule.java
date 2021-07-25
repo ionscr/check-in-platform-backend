@@ -1,7 +1,9 @@
 package practice.ibm.checkinplatform.model;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.Date;
 
 @Entity
@@ -10,8 +12,10 @@ public class Schedule {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false, updatable = false)
     private Long id;
-    @Column(name = "localDateTime", nullable = false)
-    private LocalDateTime localDateTime;
+    @Column(name = "localDate", nullable = false)
+    private LocalDate localDate;
+    @Column(name = "localTime", nullable = false)
+    private LocalTime localTime;
     @ManyToOne
     @JoinColumn(name = "classroom_id", referencedColumnName = "id")
     private Classroom classroom;
@@ -22,8 +26,9 @@ public class Schedule {
     public Schedule() {
     }
 
-    public Schedule( LocalDateTime localDateTime, Classroom classroom, Class classn) {
-        this.localDateTime = localDateTime;
+    public Schedule( LocalDate localDate, LocalTime localTime, Classroom classroom, Class classn) {
+        this.localDate = localDate;
+        this.localTime = localTime;
         this.classroom = classroom;
         this.classn = classn;
     }
@@ -37,12 +42,20 @@ public class Schedule {
     }
 
 
-    public LocalDateTime getLocalDateTime() {
-        return localDateTime;
+    public LocalDate getLocalDate() {
+        return localDate;
     }
 
-    public void setLocalDateTime(LocalDateTime localDateTime) {
-        this.localDateTime = localDateTime;
+    public void setLocalDate(LocalDate localDate) {
+        this.localDate = localDate;
+    }
+
+    public LocalTime getLocalTime() {
+        return localTime;
+    }
+
+    public void setLocalTime(LocalTime localTime) {
+        this.localTime = localTime;
     }
 
     public Classroom getClassroom() {
@@ -65,7 +78,8 @@ public class Schedule {
     public String toString() {
         return "Schedule{" +
                 "id=" + id +
-                ", localDateTime=" + localDateTime +
+                ", localDate=" + localDate +
+                ", localTime=" + localTime +
                 ", classroom=" + classroom +
                 ", classn=" + classn +
                 '}';

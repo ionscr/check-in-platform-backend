@@ -1,13 +1,14 @@
 package practice.ibm.checkinplatform.resource;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import practice.ibm.checkinplatform.model.Schedule;
 import practice.ibm.checkinplatform.service.ScheduleService;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -24,9 +25,9 @@ public class ScheduleResource {
         List<Schedule> schedules =scheduleService.findAllSchedules();
         return new ResponseEntity<>(schedules, HttpStatus.OK);
     }
-    @GetMapping("/date/{date}")
-    public ResponseEntity<List<Schedule>> getSchedulesByDate(@RequestBody LocalDateTime date) {
-        List<Schedule> schedules = scheduleService.findSchedulesByDate(date);
+    @GetMapping("/date")
+    public ResponseEntity<List<Schedule>> getSchedulesByDate(@RequestParam("localDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate localDate)  {
+        List<Schedule> schedules = scheduleService.findSchedulesByDate(localDate);
         return new ResponseEntity<>(schedules, HttpStatus.OK);
     }
 

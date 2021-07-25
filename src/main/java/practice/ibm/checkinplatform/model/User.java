@@ -29,6 +29,10 @@ public class User{
         this.first_name = first_name;
         this.last_name = last_name;
         this.role = role;
+        this.year = 0;
+        this.department = "";
+        this.section = "";
+        this.f_group = "";
     }
 
     public User(String first_name, String last_name, int role, int year, String department, String section, String f_group) {
