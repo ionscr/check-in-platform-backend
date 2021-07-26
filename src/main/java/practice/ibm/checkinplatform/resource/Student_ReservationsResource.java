@@ -2,6 +2,7 @@ package practice.ibm.checkinplatform.resource;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import practice.ibm.checkinplatform.model.Schedule;
 import practice.ibm.checkinplatform.model.Student_Reservations;
@@ -37,6 +38,7 @@ public class Student_ReservationsResource {
         Student_Reservations updateStudentReservations = student_reservationsService.updateStudent_Reservations(student_reservations);
         return new ResponseEntity<>(updateStudentReservations, HttpStatus.OK);
     }
+    @Transactional
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteStudent_Reservations(@PathVariable("id") Long id) {
         student_reservationsService.deleteStudent_ReservationsById(id);

@@ -3,9 +3,11 @@ package practice.ibm.checkinplatform.resource;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import practice.ibm.checkinplatform.model.Schedule;
 import practice.ibm.checkinplatform.service.ScheduleService;
+
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -42,6 +44,7 @@ public class ScheduleResource {
         Schedule updateSchedule = scheduleService.updateSchedule(schedule);
         return new ResponseEntity<>(updateSchedule, HttpStatus.OK);
     }
+    @Transactional
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteSchedule(@PathVariable("id") Long id) {
         scheduleService.deleteScheduleById(id);

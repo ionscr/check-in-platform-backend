@@ -2,6 +2,7 @@ package practice.ibm.checkinplatform.resource;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import practice.ibm.checkinplatform.service.ClassService;
 import practice.ibm.checkinplatform.model.Class;
@@ -35,6 +36,7 @@ public class ClassResource {
         Class updateClass = classService.updateClass(class1);
         return new ResponseEntity<>(updateClass, HttpStatus.OK);
     }
+    @Transactional
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteClass(@PathVariable("id") Long id) {
         classService.deleteClassById(id);
