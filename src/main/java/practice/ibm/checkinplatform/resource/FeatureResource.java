@@ -25,6 +25,7 @@ public class FeatureResource {
         List<Feature> features =featureService.findAllFeatures();
         return new ResponseEntity<>(features, HttpStatus.OK);
     }
+    @Transactional
     @GetMapping("/classroom/{id}")
     public ResponseEntity<List<Feature>> getFeaturesByClassroom(@RequestBody Classroom classroom) {
         List<Feature> features = featureService.findFeaturesByClassroom(classroom);

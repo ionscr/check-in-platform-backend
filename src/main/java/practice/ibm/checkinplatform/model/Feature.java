@@ -8,7 +8,7 @@ public class Feature {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false, updatable = false)
     private Long id;
-    @ManyToOne
+    @ManyToOne( fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "classroom_id", referencedColumnName = "id")
     private Classroom classroom;
     @Column(name = "feature" ,nullable = false)
