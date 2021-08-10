@@ -35,4 +35,7 @@ public class UserService {
     public List<User> findUsersByRole(int role) {
         return userRepository.findUsersByRole(role);
     }
+    public void deleteUserById(Long id){
+        userRepository.deleteUserById(id);
+    }
 }

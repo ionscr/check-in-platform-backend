@@ -2,6 +2,7 @@ package practice.ibm.checkinplatform.resource;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import practice.ibm.checkinplatform.model.User;
 import practice.ibm.checkinplatform.service.UserService;
@@ -42,6 +43,12 @@ public class UserResource {
     public ResponseEntity<User> updateUser(@RequestBody User user) {
         User updateUser = userService.updateUser(user);
         return new ResponseEntity<>(updateUser, HttpStatus.OK);
+    }
+    @Transactional
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteFeature(@PathVariable("id") Long id) {
+        userService.deleteUserById(id);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
 }
