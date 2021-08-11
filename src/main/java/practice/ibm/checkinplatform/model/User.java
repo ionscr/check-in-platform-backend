@@ -19,7 +19,7 @@ public class User{
     private String department;
     @Column(nullable = true)
     private String section;
-    @Column(nullable = true)
+    @Column(name="f_group", nullable = true)
     private String f_group;
 
     public User() {
